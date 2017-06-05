@@ -1,0 +1,19 @@
+@import '../../node_modules/normalize-scss/sass/normalize/import-now';
+@import '../../node_modules/flexboxgrid/dist/flexboxgrid.min';
+
+*:focus {
+  outline: none;
+}
+
+form {
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}

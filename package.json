@@ -1,0 +1,33 @@
+{
+  "name": "codebee-web",
+  "version": "1.0.0",
+  "description": ":)",
+  "private": true,
+  "scripts": {
+    "start": "webpack-dev-server --progress --colors --hot --inline --content-base dist/",
+    "build": "webpack --progress"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.1.1",
+    "css-loader": "^0.28.4",
+    "node-sass": "^4.5.3",
+    "postcss-loader": "^2.0.5",
+    "sass-loader": "^6.0.5",
+    "style-loader": "^0.18.1",
+    "ts-loader": "^2.1.0",
+    "typescript": "^2.3.4",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "dependencies": {
+    "@types/lodash": "^4.14.65",
+    "@types/react": "^15.0.26",
+    "@types/react-dom": "^15.5.0",
+    "flexboxgrid": "^6.3.1",
+    "lodash": "^4.17.4",
+    "material-colors": "^1.2.5",
+    "normalize-scss": "^7.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  }
+}

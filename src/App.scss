@@ -1,0 +1,11 @@
+@import 'styles/common';
+@import 'styles/media';
+@import 'styles/variables';
+
+body {
+  margin: 0;
+  background-color: $md-grey-300;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+}
