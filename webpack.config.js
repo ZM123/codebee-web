@@ -23,10 +23,11 @@ module.exports = {
       {
         test: /\.tsx?$/,
         exclude: /node_modules/,
-        loader: 'ts-loader'
+        use: ['babel-loader', 'ts-loader']
       },
       { test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'] },
+        use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
+      },
     ]
   },
   resolve: {

@@ -5,13 +5,22 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --progress --colors --hot --inline --content-base dist/",
-    "build": "webpack --progress"
+    "build": "webpack --progress",
+    "update-schema": "node ./scripts/updateSchema.js",
+    "relay": "relay-compiler --src ./src --schema schema/schema.graphql --extensions tsx --watch"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^7.0.0",
+    "babel-plugin-relay": "^1.0.1",
+    "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "node-fetch": "^1.7.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
+    "relay-compiler": "^1.0.0",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
     "ts-loader": "^2.1.0",
@@ -28,6 +37,7 @@
     "material-colors": "^1.2.5",
     "normalize-scss": "^7.0.0",
     "react": "^15.5.4",
-    "react-dom": "^15.5.4"
+    "react-dom": "^15.5.4",
+    "react-relay": "^1.0.0"
   }
 }
