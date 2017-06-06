@@ -7,7 +7,7 @@
     "start": "webpack-dev-server --progress --colors --hot --inline --content-base dist/",
     "build": "webpack --progress",
     "update-schema": "node ./scripts/updateSchema.js",
-    "relay": "relay-compiler --src ./src --schema schema/schema.graphql --extensions tsx --watch"
+    "relay": "relay-compiler --src ./src --schema schema/schema.graphql --extensions ts tsx --watch"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.1",

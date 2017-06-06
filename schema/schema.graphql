@@ -1,17 +1,17 @@
 type Mutation {
   hello: String!
   createUser(input: UserInput): User
-  updateUser(id: Int!, input: UserInput): User
+  updateUser(id: ID!, input: UserInput): User
 }
 
 type Query {
   hello: String!
-  user(id: Int!): User
+  user(id: ID!): User
   users: [User]!
 }
 
 type User {
-  id: Int!
+  id: ID!
   name: String!
 }
 
