@@ -11,6 +11,7 @@ interface Props {
 }
 
 const UserListItem = (props: Props) => {
+  console.log('UserListItem Render');
   const { id, name } = props.user;
   return <div>{id}: {name}</div>;
 };

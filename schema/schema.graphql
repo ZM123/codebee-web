@@ -1,13 +1,26 @@
+type CreateUserPayload {
+  user: User
+  viewer: Viewer
+  clientMutationId: String
+}
+
 type Mutation {
   hello: String!
-  createUser(input: UserInput): User
-  updateUser(id: ID!, input: UserInput): User
+  createUser(input: UserInput): CreateUserPayload
+  updateUser(input: UpdateUserInput): UserPayload
 }
 
 type Query {
   hello: String!
   user(id: ID!): User
   users: [User]!
+  viewer: Viewer!
+}
+
+input UpdateUserInput {
+  id: ID!
+  name: String!
+  clientMutationId: String!
 }
 
 type User {
@@ -15,6 +28,28 @@ type User {
   name: String!
 }
 
+type UserConnection {
+  edges: [UserEdge]
+}
+
+type UserEdge {
+  node: User
+}
+
 input UserInput {
   name: String!
+  clientMutationId: String!
+}
+
+type UserPayload {
+  id: ID!
+  name: String!
+  clientMutationId: String!
+}
+
+type Viewer {
+  hello: String!
+  hello2: String!
+  users: [User]
+  users2: UserConnection
 }

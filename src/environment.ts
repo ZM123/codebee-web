@@ -2,7 +2,8 @@ import {
   Environment,
   Network,
   RecordSource,
-  Store
+  Store,
+  ViewerHandler
 } from 'relay-runtime';
 
 function fetchQuery(operation: any, variables: any, cacheConfig: any, uploadable: any) {
@@ -16,6 +17,14 @@ function fetchQuery(operation: any, variables: any, cacheConfig: any, uploadable
       variables
     })
   }).then(res => res.json());
+}
+
+const w: any = window;
+w['ViewerHandler'] = ViewerHandler;
+const update = ViewerHandler.update;
+ViewerHandler.update = (...args: any[]) => {
+  console.log(args);
+  return update.apply(null, args);
 }
 
 const source = new RecordSource();
