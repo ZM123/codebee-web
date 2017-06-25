@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { createFragmentContainer, graphql } from 'react-relay';
 
-import AddUserMutation from './mutations/AddUserMutation';
-import UpdateUserMutation from './mutations/UpdateUserMutation';
+import AddUserMutation from '../../mutations/examples/AddUserMutation';
+import UpdateUserMutation from '../../mutations/examples/UpdateUserMutation';
 import AddUser from './AddUser';
 import UpdateUser from './UpdateUser';
 import UserListItem, { User } from './UserListItem';

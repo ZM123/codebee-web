@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
 
-import environment from './environment';
+import Environment from '../../Environment';
 
 import UserList from './UserList';
 
@@ -9,7 +9,7 @@ export default class Example extends React.Component<any, any> {
   render() {
     return (
       <QueryRenderer
-        environment={environment}
+        environment={Environment}
         query={graphql`
           query ExampleQuery {
             viewer {

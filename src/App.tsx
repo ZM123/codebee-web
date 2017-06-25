@@ -3,7 +3,7 @@ import './App.scss';
 import * as React from 'react';
 import { render } from 'react-dom';
 
-import Example from './Example';
+import Example from './components/examples/Example';
 
 const App = () => {
   return (
