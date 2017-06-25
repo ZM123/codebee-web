@@ -8,8 +8,11 @@ import UpdateUser from './UpdateUser';
 import UserListItem, { User } from './UserListItem';
 
 interface Data {
-  users: User[];
-  hello?: string;
+  users: {
+    edges: {
+      node: User
+    }[]
+  };
 }
 
 interface Props {
@@ -18,7 +21,7 @@ interface Props {
 }
 
 const UserList = (props: Props) => {
-  const { users, hello } = props.viewer;
+  const { users } = props.viewer;
 
   const handleAddSubmit = (name: string) => {
     const p: any = props;
@@ -43,10 +46,9 @@ const UserList = (props: Props) => {
 
   return (
     <div>
-      <h1>{hello}</h1>
       <h1>Users</h1>
       <div>
-        {users.map((user: any) => <UserListItem user={user} key={user.id} />)}
+        {users.edges.map(edge => <UserListItem user={edge.node} key={edge.node.id} />)}
       </div>
       <AddUser onSubmit={handleAddSubmit} />
       <UpdateUser onSubmit={handleUpdateSubmit} />
@@ -56,25 +58,15 @@ const UserList = (props: Props) => {
 
 const container: React.ComponentClass<Props> = createFragmentContainer(
   UserList,
-  // graphql`
-  //   fragment UserList_viewer on Viewer {
-  //     hello
-  //     users2 {
-  //       edges {
-  //         node {
-  //           id
-  //           ...UserListItem_user
-  //         }
-  //       }
-  //     }
-  //   }
-  // `
   graphql`
     fragment UserList_viewer on Viewer {
-      hello
       users {
-        id
-        ...UserListItem_user
+        edges {
+          node {
+            id
+            ...UserListItem_user
+          }
+        }
       }
     }
   `

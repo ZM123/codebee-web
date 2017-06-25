@@ -9,3 +9,5 @@ dist/*
 !dist/index.html
 
 __generated__/
+
+.ignore/

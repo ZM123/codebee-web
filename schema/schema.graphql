@@ -1,55 +1,73 @@
-type CreateUserPayload {
-  user: User
-  viewer: Viewer
+type AuthPayload {
+  user: User!
+  token: String
+  clientMutationId: String
+}
+
+interface Connection {
+  edges: [Edge]!
+}
+
+interface Edge {
+  node: Node!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
   clientMutationId: String
 }
 
 type Mutation {
   hello: String!
-  createUser(input: UserInput): CreateUserPayload
-  updateUser(input: UpdateUserInput): UserPayload
+  register(input: RegisterInput!): AuthPayload!
+  login(input: LoginInput!): AuthPayload!
+  updateUser(input: UpdateUserInput!): UserPayload!
+}
+
+interface Node {
+  id: ID!
 }
 
 type Query {
   hello: String!
-  user(id: ID!): User
-  users: [User]!
   viewer: Viewer!
+}
+
+input RegisterInput {
+  name: String!
+  email: String!
+  username: String!
+  password: String!
+  clientMutationId: String
 }
 
 input UpdateUserInput {
   id: ID!
   name: String!
-  clientMutationId: String!
+  clientMutationId: String
 }
 
-type User {
+type User implements Node {
   id: ID!
   name: String!
 }
 
-type UserConnection {
-  edges: [UserEdge]
+type UserConnection implements Connection {
+  edges: [UserEdge]!
 }
 
-type UserEdge {
-  node: User
-}
-
-input UserInput {
-  name: String!
-  clientMutationId: String!
+type UserEdge implements Edge {
+  node: User!
 }
 
 type UserPayload {
-  id: ID!
-  name: String!
-  clientMutationId: String!
+  user: User!
+  clientMutationId: String
 }
 
 type Viewer {
-  hello: String!
-  hello2: String!
-  users: [User]
-  users2: UserConnection
+  users: UserConnection!
+  user(id: ID!): User!
+  me: User!
 }

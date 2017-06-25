@@ -2,20 +2,14 @@ import { commitMutation, graphql } from 'react-relay';
 
 const mutation = graphql`
   mutation AddUserMutation(
-    $input: UserInput!
+    $input: RegisterInput!
   ) {
-    createUser(input: $input) {
+    register(input: $input) {
       user {
         id
         name
       }
       clientMutationId
-      viewer {
-        users {
-          id
-          name
-        }
-      }
     }
   }
 `;
@@ -26,6 +20,9 @@ function addUser(environment: any, name: string) {
   const variables = {
     input: {
       name,
+      email: name,
+      username: name,
+      password: name,
       clientMutationId: temp++
     }
   };
