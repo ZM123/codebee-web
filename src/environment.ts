@@ -5,17 +5,33 @@ import {
   Store
 } from 'relay-runtime';
 
-function fetchQuery(operation: any, variables: any, cacheConfig: any, uploadable: any) {
-  return fetch('/graphql', {
+import Constants from './lib/Constants';
+import LocalStorage from './lib/LocalStorage';
+
+async function fetchQuery(operation: any, variables: any, cacheConfig: any, uploadable: any) {
+  const headers = new Headers({
+    'content-type': 'application/json'
+  });
+
+  const csrfToken = LocalStorage.getItem(Constants.CSRF_HEADER);
+  if (csrfToken) {
+    headers.append(Constants.CSRF_HEADER, csrfToken);
+  }
+
+  const res = await fetch('/graphql', {
     method: 'POST',
-    headers: {
-      'content-type': 'application/json'
-    },
+    headers: headers,
     body: JSON.stringify({
       query: operation.text,
       variables
     })
-  }).then(res => res.json());
+  })
+
+  if (res.headers.has(Constants.CSRF_HEADER)) {
+    LocalStorage.setItem(Constants.CSRF_HEADER, String(res.headers.get(Constants.CSRF_HEADER)));
+  }
+
+  return res.json();
 }
 
 const source = new RecordSource();
@@ -27,4 +43,4 @@ const environment = new Environment({
   store
 });
 
-export default Environment;
+export default environment;
