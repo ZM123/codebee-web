@@ -17,6 +17,7 @@
     "babel-plugin-relay": "^1.0.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.4",
+    "file-loader": "^0.11.2",
     "node-fetch": "^1.7.1",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.5",
@@ -30,8 +31,9 @@
   },
   "dependencies": {
     "@types/lodash": "^4.14.65",
-    "@types/react": "^15.0.26",
+    "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.0",
+    "@types/react-router-dom": "^4.0.5",
     "@types/uuid": "^3.0.0",
     "flexboxgrid": "^6.3.1",
     "lodash": "^4.17.4",
@@ -40,6 +42,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-relay": "^1.0.0",
+    "react-router-dom": "^4.1.1",
     "uuid": "^3.1.0"
   }
 }

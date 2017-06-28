@@ -1,13 +1,35 @@
 @import '../../node_modules/material-colors/dist/colors';
 
+@import 'shadows.scss';
+
+/* Variables */
+$background: #121212;
+
+/* Fonts */
+@mixin font-default {
+  font-family: 'Roboto';
+  font-size: 14px;
+  font-weight: 400;
+}
+
+/* Shadows */
 @mixin shadow {
-  box-shadow: 0 1px 3px 0 rgba(0,0,0,.2),0 1px 1px 0 rgba(0,0,0,.14),0 2px 1px -1px rgba(0,0,0,.12); // Angular Material Whiteframe
+  box-shadow: $shadow-1dp;
+}
+
+@mixin shadow-light {
+  box-shadow: $shadow-2dp;
+}
+
+@mixin shadow-medium {
+  box-shadow: $shadow-4dp;
 }
 
 @mixin shadow-dark {
-  box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),0 8px 10px 1px rgba(0,0,0,.14),0 3px 14px 2px rgba(0,0,0,.12); // Angular Material Whiteframe 8dp
+  box-shadow: $shadow-8dp;
 }
 
+/* Text */
 @mixin text-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

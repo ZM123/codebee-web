@@ -32,12 +32,17 @@ module.exports = {
       { test: /\.scss$/,
         use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader']
       },
+      {
+        test: /\.(jpe?g|png|gif|svg)$/,
+        use: 'file-loader'
+      }
     ]
   },
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx']
   },
   devServer: {
+    historyApiFallback: true,
     proxy: {
       '/graphql': 'http://localhost:3000'
     }

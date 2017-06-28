@@ -1,8 +1,10 @@
 import * as React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
+import { Route } from 'react-router-dom'
 
 import Environment from '../Environment';
-import Registration from './Registration';
+import RegistrationPage from './pages/RegistrationPage';
+import HomePage from './pages/HomePage';
 
 export default class Root extends React.Component<any, any> {
   render() {
@@ -20,7 +22,8 @@ export default class Root extends React.Component<any, any> {
           } else if (props) {
             return (
               <div>
-                <Registration />
+                <Route exact path="/" component={HomePage} />
+                <Route path="/register" component={RegistrationPage} />
               </div>
             );
           }

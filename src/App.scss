@@ -4,8 +4,7 @@
 
 body {
   margin: 0;
-  background-color: $md-grey-300;
-  font-family: 'Roboto', sans-serif;
-  font-size: 14px;
-  font-weight: 400;
+  background-image: url('./assets/background.png');
+  background-color: $background;
+  @include font-default;
 }
