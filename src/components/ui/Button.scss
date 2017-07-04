@@ -36,7 +36,7 @@
     color: $md-dark-text-primary;
 
     &.Button--hover {
-      background-color: $md-amber-800;
+      background-color: $md-amber-900;
     }
   }
 
@@ -58,7 +58,8 @@
 
     &.Button--hover {
       color: $md-dark-text-primary;
-      background-color: $md-amber-700;
+      background-color: $md-amber-900;
+      outline: $md-amber-900 solid 1px;
     }
   }
 
