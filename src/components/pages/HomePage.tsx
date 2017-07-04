@@ -2,8 +2,10 @@ import './HomePage.scss';
 
 import * as React from 'react';
 import * as classnames from 'classnames';
+import { Link } from 'react-router-dom';
 
 import Button from '../ui/Button';
+import Fade from '../ui/animations/Fade';
 import HomeDescription from '../HomeDescription';
 import Logo from '../Logo/Logo';
 
@@ -36,16 +38,20 @@ export default class HomePage extends React.Component<undefined, State> {
 
     return (
       <div className="HomePage">
-        <div className="HomePage-logo">
-          <Logo />
-          <HomeDescription onComplete={this.handleTypingComplete} />
-        </div>
+        <Fade appear={true}>
+          <div className="HomePage-logo">
+            <Logo />
+            <HomeDescription onComplete={this.handleTypingComplete} />
+          </div>
+        </Fade>
         <div className={buttonsCssClass}>
           <span className="HomePage-buttons-login">
             <Button primary>Login</Button>
           </span>
           <span className="HomePage-buttons-register">
-            <Button outline>Register</Button>
+            <Link to="/register">
+              <Button outline>Register</Button>
+            </Link>
           </span>
         </div>
       </div>
