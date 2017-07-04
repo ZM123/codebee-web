@@ -3,8 +3,7 @@ import { QueryRenderer, graphql } from 'react-relay';
 import { Route } from 'react-router-dom'
 
 import Environment from '../Environment';
-import RegistrationPage from './pages/RegistrationPage';
-import HomePage from './pages/HomePage';
+import Router from './Router';
 
 export default class Root extends React.Component<any, any> {
   render() {
@@ -21,10 +20,7 @@ export default class Root extends React.Component<any, any> {
             return <div>{error.message}</div>;
           } else if (props) {
             return (
-              <div>
-                <Route exact path="/" component={HomePage} />
-                <Route path="/register" component={RegistrationPage} />
-              </div>
+              <Router />
             );
           }
           return <div>Loading</div>;

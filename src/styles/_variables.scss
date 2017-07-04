@@ -7,9 +7,10 @@ $background: #121212;
 
 /* Fonts */
 @mixin font-default {
-  font-family: 'Roboto';
+  font-family: 'Lato';
   font-size: 14px;
   font-weight: 400;
+  color: $md-light-text-primary;
 }
 
 /* Shadows */
@@ -34,4 +35,19 @@ $background: #121212;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+@mixin no-select {
+  user-select: none;
+  cursor: default;
+}
+
+/* Animations */
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@mixin fade-in {
+  animation: fade-in 1s ease;
 }

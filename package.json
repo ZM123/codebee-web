@@ -30,11 +30,13 @@
     "webpack-dev-server": "^2.4.5"
   },
   "dependencies": {
+    "@types/classnames": "^2.2.0",
     "@types/lodash": "^4.14.65",
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.0",
     "@types/react-router-dom": "^4.0.5",
     "@types/uuid": "^3.0.0",
+    "classnames": "^2.2.5",
     "flexboxgrid": "^6.3.1",
     "lodash": "^4.17.4",
     "material-colors": "^1.2.5",
@@ -43,6 +45,7 @@
     "react-dom": "^15.5.4",
     "react-relay": "^1.0.0",
     "react-router-dom": "^4.1.1",
+    "react-typist": "^1.1.1",
     "uuid": "^3.1.0"
   }
 }

@@ -5,6 +5,8 @@
   flex-direction: column;
   align-items: center;
 
+  @include no-select;
+
   &-image {
     width: 128px;
   }

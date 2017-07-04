@@ -1,0 +1,13 @@
+@import '../styles/variables';
+
+.HomeDescription {
+  height: 32px;
+  @include no-select;
+
+  &-text {
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 32px;
+    color: $md-light-text-secondary;
+  }
+}
