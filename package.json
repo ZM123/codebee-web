@@ -35,6 +35,7 @@
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.0",
     "@types/react-router-dom": "^4.0.5",
+    "@types/react-transition-group": "^1.1.1",
     "@types/uuid": "^3.0.0",
     "classnames": "^2.2.5",
     "flexboxgrid": "^6.3.1",
@@ -45,6 +46,7 @@
     "react-dom": "^15.5.4",
     "react-relay": "^1.0.0",
     "react-router-dom": "^4.1.1",
+    "react-transition-group": "^1.2.0",
     "react-typist": "^1.1.1",
     "uuid": "^3.1.0"
   }

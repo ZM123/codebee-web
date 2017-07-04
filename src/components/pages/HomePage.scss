@@ -23,8 +23,19 @@
     .Button {
       min-width: 128px;
       margin: 0 16px;
+    }
 
-      @include fade-in;
+    &-login, &-register {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    &--show-login &-login {
+      opacity: 1;
+    }
+
+    &--show-register &-register {
+      opacity: 1;
     }
   }
 }
