@@ -1,0 +1,11 @@
+.Form {
+  .FormButtons {
+    margin-top: 16px;
+  }
+
+  &-progress.LinearProgress {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

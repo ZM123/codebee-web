@@ -1,48 +1,26 @@
+import './Registration.scss';
+
 import * as React from 'react';
 import { createFragmentContainer } from 'react-relay';
+import { Link } from 'react-router-dom';
 
-import RegistrationForm, { RegistrationData } from './RegistrationForm';
-import RegisterMutation from '../mutations/RegisterMutation';
+import RegistrationForm from './forms/RegistrationForm';
+import Panel from './ui/Panel';
 
-import RegistrationReduxForm from './forms/RegistrationForm';
-
-interface Props {
-  relay?: any;
-}
-
-interface State {
-  data: RegistrationData;
-}
-
-class Registration extends React.Component<Props, State> {
-  state: State = {
-    data: {
-      name: '',
-      username: '',
-      email: '',
-      password: ''
-    }
-  };
-
-  handleChange = (data: RegistrationData) => {
-    this.setState({ data });
-  }
-
-  handleSubmit = (data: RegistrationData) => {
-    RegisterMutation.commit(data);
-  }
-
+class Registration extends React.Component {
   render() {
     return (
-      <div>
-        <h1>User Registration</h1>
-        <RegistrationForm data={this.state.data} onChange={this.handleChange} onSubmit={this.handleSubmit} />
-        <RegistrationReduxForm />
+      <div className="Registration">
+        <Panel>
+          <h1>Create an Account</h1>
+          <RegistrationForm className="Registration-form" />
+          <div className="Registration-login">Got an account? <Link to="/login">Login here!</Link></div>
+        </Panel>
       </div>
     );
   }
 }
 
-const container: React.ComponentClass<Props> = createFragmentContainer(Registration, {});
+const container: React.ComponentClass = createFragmentContainer(Registration, {});
 
 export default container;

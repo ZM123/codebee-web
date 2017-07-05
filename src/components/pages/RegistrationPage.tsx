@@ -1,3 +1,5 @@
+import './RegistrationPage.scss';
+
 import * as React from 'react';
 
 import Registration from '../Registration';

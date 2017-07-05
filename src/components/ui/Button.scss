@@ -41,7 +41,8 @@
   }
 
   &--primary.Button--disabled {
-    background-color: $md-amber-200;
+    color: $md-light-text-disabled;
+    background-color: $md-blue-grey-900;
   }
 
   &--raised {

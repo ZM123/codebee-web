@@ -1,8 +1,18 @@
 @import '../../node_modules/normalize-scss/sass/normalize/import-now';
 @import '../../node_modules/flexboxgrid/dist/flexboxgrid.min';
+@import 'variables';
 
 *:focus {
   outline: none;
+}
+
+a {
+  text-decoration: none;
+  color: $md-amber-700;
+
+  &:hover, &:active {
+    color: $md-amber-700;
+  }
 }
 
 form {

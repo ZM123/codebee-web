@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { reduxForm, FormProps, SubmissionError } from 'redux-form';
 import * as classnames from 'classnames';
 
-// import LinearProgress from './LinearProgress';
+import LinearProgress from './LinearProgress';
 import FormMessage from './FormMessage';
 import FormButtons from './FormButtons';
 
@@ -42,7 +42,7 @@ export default class Form<P> extends React.Component<Props<P>> {
         {inputs}
         {buttons}
         <FormMessage type="Error">{(!submitting && error) ? error : undefined}</FormMessage>
-        {/*<LinearProgress className="Form-progress" enabled={submitting} />*/}
+        <LinearProgress className="Form-progress" enabled={submitting} />
       </form>
     );
   }
