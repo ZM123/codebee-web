@@ -4,6 +4,8 @@ import { createFragmentContainer } from 'react-relay';
 import RegistrationForm, { RegistrationData } from './RegistrationForm';
 import RegisterMutation from '../mutations/RegisterMutation';
 
+import RegistrationReduxForm from './forms/RegistrationForm';
+
 interface Props {
   relay?: any;
 }
@@ -27,7 +29,7 @@ class Registration extends React.Component<Props, State> {
   }
 
   handleSubmit = (data: RegistrationData) => {
-    RegisterMutation(this.props.relay.environment, data);
+    RegisterMutation.commit(data);
   }
 
   render() {
@@ -35,6 +37,7 @@ class Registration extends React.Component<Props, State> {
       <div>
         <h1>User Registration</h1>
         <RegistrationForm data={this.state.data} onChange={this.handleChange} onSubmit={this.handleSubmit} />
+        <RegistrationReduxForm />
       </div>
     );
   }

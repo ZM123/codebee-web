@@ -34,9 +34,12 @@
     "@types/lodash": "^4.14.65",
     "@types/react": "^15.0.33",
     "@types/react-dom": "^15.5.0",
+    "@types/react-redux": "^4.4.45",
     "@types/react-router-dom": "^4.0.5",
     "@types/react-transition-group": "^1.1.1",
+    "@types/redux-form": "^6.6.5",
     "@types/uuid": "^3.0.0",
+    "@types/validator": "^6.2.0",
     "classnames": "^2.2.5",
     "flexboxgrid": "^6.3.1",
     "lodash": "^4.17.4",
@@ -44,10 +47,14 @@
     "normalize-scss": "^7.0.0",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
-    "react-relay": "^1.0.0",
+    "react-redux": "^5.0.5",
+    "react-relay": "^1.1.0",
     "react-router-dom": "^4.1.1",
     "react-transition-group": "^1.2.0",
     "react-typist": "^1.1.1",
-    "uuid": "^3.1.0"
+    "redux": "^3.7.1",
+    "redux-form": "^6.8.0",
+    "uuid": "^3.1.0",
+    "validator": "^7.2.0"
   }
 }

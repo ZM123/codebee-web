@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { QueryRenderer, graphql } from 'react-relay';
-import { Route } from 'react-router-dom'
 
 import Environment from '../Environment';
 import Router from './Router';
