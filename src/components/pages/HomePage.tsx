@@ -46,7 +46,9 @@ export default class HomePage extends React.Component<undefined, State> {
         </Fade>
         <div className={buttonsCssClass}>
           <span className="HomePage-buttons-login">
-            <Button primary>Login</Button>
+            <Link to="/login">
+              <Button primary>Login</Button>
+            </Link>
           </span>
           <span className="HomePage-buttons-register">
             <Link to="/register">
