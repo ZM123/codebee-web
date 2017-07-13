@@ -7,11 +7,13 @@
 
   label {
     position: absolute;
-    font-size: 14px;
-    font-weight: 400;
     top: 20px;
     left: 0;
+
+    @include font-lato-regular;
+    font-size: 14px;
     color: $md-light-text-secondary;
+
     pointer-events: none;
     transition: color 0.2s ease,
                 transform 0.2s ease;
@@ -66,8 +68,8 @@
 
   &--focused, &--has-value {
     label {
+      @include font-lato-bold;
       transform: translateY(-20px) scale(0.75);
-      font-weight: 500;
     }
   }
 

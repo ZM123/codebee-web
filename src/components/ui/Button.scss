@@ -11,12 +11,12 @@
   height: 40px;
   padding: 12px 16px;
   border-radius: 2px;
+
+  @include font-lato-regular;
+  font-size: 16px;
+  line-height: 16px;
   text-align: center;
   text-transform: capitalize;
-  font-family: 'Lato';
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 16px;
 
   background-color: darken($md-grey-900, 5%);
 
@@ -32,6 +32,7 @@
   }
 
   &--primary:not(&--disabled) {
+    @include font-lato-bold;
     background-color: $md-amber-700;
     color: $md-dark-text-primary;
 

@@ -2,8 +2,8 @@
 
 .Login {
   h1 {
+    @include font-raleway-regular;
     font-size: 24px;
-    font-family: 'Raleway';
   }
 
   .Panel {

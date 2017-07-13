@@ -6,10 +6,39 @@
 $background: #121212;
 
 /* Fonts */
-@mixin font-default {
+@mixin font-lato-light {
   font-family: 'Lato';
-  font-size: 14px;
+  font-weight: 300;
+}
+
+@mixin font-lato-regular {
+  font-family: 'Lato';
   font-weight: 400;
+}
+
+@mixin font-lato-bold {
+  font-family: 'Lato';
+  font-weight: 700;
+}
+
+@mixin font-raleway-light {
+  font-family: 'Raleway';
+  font-weight: 300;
+}
+
+@mixin font-raleway-regular {
+  font-family: 'Raleway';
+  font-weight: 400;
+}
+
+@mixin font-raleway-bold {
+  font-family: 'Raleway';
+  font-weight: 700;
+}
+
+@mixin font-default {
+  @include font-lato-regular;
+  font-size: 14px;
   color: $md-light-text-primary;
 }
 

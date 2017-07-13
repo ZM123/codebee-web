@@ -12,9 +12,8 @@
   }
 
   &-text {
-    font-family: 'Raleway';
+    @include font-raleway-light;
     font-size: 32px;
-    font-weight: 300;
     letter-spacing: 4px;
 
     span {
