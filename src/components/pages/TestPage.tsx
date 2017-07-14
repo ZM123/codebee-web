@@ -4,11 +4,12 @@ import * as React from 'react';
 
 import Logo from '../Logo/Logo';
 import Buttons from '../ui/examples/Buttons';
+import Panel from '../ui/Panel';
 
 const TestPage = () => (
   <div className="TestPage">
-    <Logo />
-    <Buttons />
+    <Panel><Logo /></Panel>
+    <Panel><Buttons /></Panel>
   </div>
 );
 

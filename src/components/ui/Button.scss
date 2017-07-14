@@ -1,6 +1,16 @@
 @import "../../styles/variables";
 
 .Button {
+  @function button-gradient($c1, $c2) {
+    @return radial-gradient(circle at center, $c1 0%, $c2 66%);
+  }
+
+  @mixin button-gradient($c1, $c2) {
+    background: button-gradient($c1, $c2);
+    background-size: 200%;
+    background-position: top right;
+  }
+
   border: 0;
   padding: 0;
   background: none;
@@ -10,7 +20,6 @@
   min-width: 80px;
   height: 40px;
   padding: 12px 16px;
-  border-radius: 2px;
 
   @include font-lato-regular;
   font-size: 16px;
@@ -18,10 +27,19 @@
   text-align: center;
   text-transform: capitalize;
 
-  background-color: darken($md-grey-900, 5%);
+  transition: all 0.2s linear;
 
-  transition: background-color 0.2s ease,
-              color 0.2s ease;
+  &--Circular {
+    border-radius: 20px;
+  }
+
+  &--Rectangular {
+    border-radius: 2px;
+  }
+
+  &--Rounded {
+    border-radius: 10px;
+  }
 
   &--default:not(&--disabled) {
     color: $md-amber-700;
@@ -33,35 +51,36 @@
 
   &--primary:not(&--disabled) {
     @include font-lato-bold;
-    background-color: $md-amber-700;
+    @include button-gradient($md-amber-300, $md-orange-700);
+
     color: $md-dark-text-primary;
 
     &.Button--hover {
-      background-color: $md-amber-900;
+      color: $md-light-text-primary;
+      background-position: bottom left;
     }
   }
 
   &--primary.Button--disabled {
+    @include button-gradient($md-grey-800, $md-blue-grey-900);
     color: $md-light-text-disabled;
-    background-color: $md-blue-grey-900;
   }
 
   &--raised {
+    background-color: darken($md-blue-grey-900, 10%);
     box-shadow: 0 2px 5px 0 rgba($md-black, 0.26);
   }
 
   &--raised.Button--disabled {
-    background-color: rgba($md-black, 0.12);
+    background-color: rgba(darken($md-blue-grey-900, 10%), 0.5);
   }
 
   &--outline:not(&--primary):not(&--disabled) {
-    outline: $md-amber-700 solid 1px;
-    outline-offset: -1px;
+    border: 1px solid $md-amber-700;
 
     &.Button--hover {
-      color: $md-dark-text-primary;
-      background-color: $md-amber-900;
-      outline: $md-amber-900 solid 1px;
+      color: $md-light-text-primary;
+      border: 1px solid $md-amber-500;
     }
   }
 

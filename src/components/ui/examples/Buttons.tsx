@@ -1,10 +1,12 @@
+import './Buttons.scss';
+
 import * as React from 'react';
 
 import Button from '../Button';
 
 export default function() {
   return (
-    <div>
+    <div className="Buttons">
       <Button default>Default</Button>
       <Button default outline>Default Outline</Button>
       <Button primary>Primary</Button>

@@ -10,6 +10,7 @@ interface ButtonProps extends React.HTMLProps<any> {
   primary?: boolean;
   outline?: boolean;
   disabled?: boolean;
+  shape?: 'Circular' | 'Rectangular' | 'Round';
 }
 
 interface ButtonState {
@@ -22,7 +23,8 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
     raised: false,
     primary: false,
     outline: false,
-    disabled: false
+    disabled: false,
+    shape: 'Circular'
   };
 
   state: ButtonState = {
@@ -51,12 +53,13 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
       'Button--primary': this.props.primary,
       'Button--outline': this.props.outline,
       'Button--disabled': this.props.disabled,
+      [`Button--${this.props.shape}`]: true
     };
   }
 
   render() {
     const { className, children } = this.props;
-    const other = omit(this.props, 'className', 'primary', 'raised', 'outline');
+    const other = omit(this.props, 'className', 'primary', 'raised', 'outline', 'shape');
 
     const cssClass = classnames('Button', className, this.getClassNames());
 
