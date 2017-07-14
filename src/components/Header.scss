@@ -1,0 +1,53 @@
+@import '../styles/variables';
+
+.Header {
+  position: fixed;
+  width: 100%;
+  height: 56px;
+  line-height: 56px;
+  background-color: rgba($md-blue-grey-900, 0.2);
+  z-index: 1000;
+
+  @include shadow;
+
+  &-links {
+    display: flex;
+    position: absolute;
+    right: 0;
+    padding: 0 16px;
+  }
+}
+
+.HeaderLink {
+  position: relative;
+  text-align: center;
+  min-width: 96px;
+  margin: 0 4px;
+  color: $md-amber-500;
+
+  @include font-raleway-regular;
+
+  transition: all 0.2s ease-in;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 0;
+    opacity: 0;
+
+    transition: all 0.1s ease-in;
+  }
+
+  &--selected, &:hover {
+    color: $md-amber-700;
+
+    &:after {
+      height: 4px;
+      opacity: 1;
+      background-color: $md-amber-700;
+    }
+  }
+}

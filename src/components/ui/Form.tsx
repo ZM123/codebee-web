@@ -17,8 +17,8 @@ export default class Form<P> extends React.Component<Props<P>> {
   };
 
   disabled() {
-    const { invalid, submitting } = this.props;
-    return invalid || submitting;
+    const { invalid, pristine, submitting  } = this.props;
+    return invalid || pristine || submitting;
   }
 
   render() {

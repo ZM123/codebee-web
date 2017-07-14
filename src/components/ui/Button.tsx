@@ -29,6 +29,12 @@ export default class Button extends React.Component<ButtonProps, ButtonState> {
     hover: false
   };
 
+  componentWillReceiveProps(nextProps: ButtonProps) {
+    if (!this.props.disabled && nextProps.disabled) {
+      this.setState({ hover: false });
+    }
+  }
+
   handleMouseOver = () => {
     this.setState({ hover: true });
   };

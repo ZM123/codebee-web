@@ -14,17 +14,23 @@ interface State {
   showRegister: boolean;
 }
 
-export default class HomePage extends React.Component<undefined, State> {
+export default class HomePage extends React.Component<{}, State> {
+  typingTimeout: number;
+
   state: State = {
     showLogin: false,
     showRegister: false,
   };
 
+  componentWillUnmount() {
+    window.clearTimeout(this.typingTimeout);
+  }
+
   handleTypingComplete = () => {
-    setTimeout(() => {
+    this.typingTimeout = window.setTimeout(() => {
       this.setState({ showLogin: true });
 
-      setTimeout(() => {
+      this.typingTimeout = window.setTimeout(() => {
         this.setState({ showRegister: true });
       }, 200)
     }, 200);
