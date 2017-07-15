@@ -5,15 +5,7 @@ import * as classnames from 'classnames';
 import { omit } from 'lodash';
 import { Link, LinkProps, withRouter, RouteComponentProps } from 'react-router-dom';
 
-interface Props {
-
-}
-
-interface HeaderLinkProps {
-
-}
-
-const HeaderLink = withRouter((props: HeaderLinkProps & LinkProps & RouteComponentProps<any>) => {
+const HeaderLink = withRouter((props: LinkProps & RouteComponentProps<any>) => {
   const { className } = props;
   const other: any = omit(props, 'className', 'match', 'location', 'history', 'staticContext');
 
@@ -26,10 +18,8 @@ const HeaderLink = withRouter((props: HeaderLinkProps & LinkProps & RouteCompone
   return <Link className={cssClass} {...other} />;
 });
 
-export default class Header extends React.Component<Props> {
+export default class Header extends React.Component {
   render() {
-    const props = this.props;
-    console.log(props);
     return (
       <div className="Header">
         <div className="Header-links">

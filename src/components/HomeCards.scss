@@ -1,0 +1,29 @@
+@import '../styles/variables';
+
+.HomeCards {
+  @extend .row;
+}
+
+.HomeCard {
+  @extend .col-xs-4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 24px;
+
+  &-title {
+    @include font-raleway-regular;
+    font-size: $font-size-large;
+    color: $md-amber-700;
+  }
+
+  &-icon {
+    color: $md-yellow-500;
+    margin: 16px 0;
+  }
+
+  &-text {
+    text-align: justify;
+  }
+}

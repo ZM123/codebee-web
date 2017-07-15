@@ -1,30 +1,19 @@
-import * as React from 'react';
-import { QueryRenderer, graphql } from 'react-relay';
+import './Root.scss';
 
-import Environment from '../Environment';
+import * as React from 'react';
+
+import Header from './Header';
 import Router from './Router';
 
-export default class Root extends React.Component<any, any> {
+export default class Root extends React.Component {
   render() {
     return (
-      <QueryRenderer
-        environment={Environment}
-        query={graphql`
-          query RootQuery {
-            hello
-          }
-        `}
-        render={({ error, props }: any) => {
-          if (error) {
-            return <div>{error.message}</div>;
-          } else if (props) {
-            return (
-              <Router />
-            );
-          }
-          return <div>Loading</div>;
-        }}
-      />
+      <div className="Root">
+        <Header />
+        <div className="Root-content">
+          <Router />
+        </div>
+      </div>
     );
   }
 }

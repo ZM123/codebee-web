@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom';
 
 import Button from '../ui/Button';
 import Fade from '../ui/animations/Fade';
+import HomeCards from '../HomeCards';
 import HomeDescription from '../HomeDescription';
 import Logo from '../Logo/Logo';
 
 interface State {
   showLogin: boolean;
   showRegister: boolean;
+  loaded: boolean;
 }
 
 export default class HomePage extends React.Component<{}, State> {
@@ -20,6 +22,7 @@ export default class HomePage extends React.Component<{}, State> {
   state: State = {
     showLogin: false,
     showRegister: false,
+    loaded: false
   };
 
   componentWillUnmount() {
@@ -32,35 +35,51 @@ export default class HomePage extends React.Component<{}, State> {
 
       this.typingTimeout = window.setTimeout(() => {
         this.setState({ showRegister: true });
+
+        this.typingTimeout = window.setTimeout(() => {
+          this.setState({ loaded: true });
+        }, 200);
       }, 200)
     }, 200);
   }
 
   render() {
-    const buttonsCssClass = classnames('Homepage-buttons', {
-      'Homepage-buttons--show-login': this.state.showLogin,
-      'Homepage-buttons--show-register': this.state.showRegister
+    const cssClass = classnames('HomePage', {
+      'HomePage--loaded': this.state.loaded
+    });
+
+    const buttonsCssClass = classnames('HomePage-buttons', {
+      'HomePage-buttons--show-login': this.state.showLogin,
+      'HomePage-buttons--show-register': this.state.showRegister
     });
 
     return (
-      <div className="HomePage">
-        <Fade appear={true}>
-          <div className="HomePage-logo">
-            <Logo />
-            <HomeDescription onComplete={this.handleTypingComplete} />
+      <div className={cssClass}>
+        <div className="HomePage-top">
+          <Fade appear={true}>
+            <div className="HomePage-logo">
+              <Logo />
+              <HomeDescription onComplete={this.handleTypingComplete} />
+            </div>
+          </Fade>
+          <div className={buttonsCssClass}>
+            <span className="HomePage-buttons-login">
+              <Link to="/login">
+                <Button primary>Login</Button>
+              </Link>
+            </span>
+            <span className="HomePage-buttons-register">
+              <Link to="/register">
+                <Button outline>Register</Button>
+              </Link>
+            </span>
           </div>
-        </Fade>
-        <div className={buttonsCssClass}>
-          <span className="HomePage-buttons-login">
-            <Link to="/login">
-              <Button primary>Login</Button>
-            </Link>
-          </span>
-          <span className="HomePage-buttons-register">
-            <Link to="/register">
-              <Button outline>Register</Button>
-            </Link>
-          </span>
+        </div>
+        <hr className="HomePage-divider" />
+        <div className="HomePage-bottom">
+          <div className="HomePage-cards">
+            <HomeCards />
+          </div>
         </div>
       </div>
     );

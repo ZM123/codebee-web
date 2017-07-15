@@ -1,3 +1,4 @@
+@import '../../node_modules/flexboxgrid/dist/flexboxgrid.min';
 @import '../../node_modules/material-colors/dist/colors';
 
 @import 'shadows.scss';
@@ -6,6 +7,10 @@
 $background: #121212;
 
 /* Fonts */
+$font-size-small: 14px;
+$font-size-medium: 16px;
+$font-size-large: 24px;
+
 @mixin font-lato-light {
   font-family: 'Lato';
   font-weight: 300;
@@ -37,8 +42,9 @@ $background: #121212;
 }
 
 @mixin font-default {
-  @include font-lato-regular;
-  font-size: 14px;
+  @include font-lato-light;
+  font-size: $font-size-medium;
+  line-height: 1.5;
   color: $md-light-text-primary;
 }
 

@@ -7,12 +7,12 @@ import { Provider } from 'react-redux'
 import { Route } from 'react-router-dom'
 
 import Store from './Store';
-import Root from './components/Root';
+import RootRenderer from './components/RootRenderer';
 
 render((
   <BrowserRouter>
     <Provider store={Store}>
-      <Root />
+      <RootRenderer />
     </Provider>
   </BrowserRouter>
 ), document.getElementById('app'));

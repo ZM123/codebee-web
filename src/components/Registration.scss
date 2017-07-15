@@ -3,7 +3,8 @@
 .Registration {
   h1 {
     @include font-raleway-regular;
-    font-size: 24px;
+    font-size: $font-size-large;
+    color: $md-amber-700;
   }
 
   .Panel {
@@ -15,7 +16,6 @@
   }
 
   &-login {
-    font-size: 16px;
     text-align: center;
   }
 }

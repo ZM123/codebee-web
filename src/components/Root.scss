@@ -1,0 +1,10 @@
+@import '../styles/variables';
+
+.Root {
+  &-content {
+    position: relative;
+    padding-top: 56px;
+    box-sizing: border-box;
+    height: 100%;
+  }
+}

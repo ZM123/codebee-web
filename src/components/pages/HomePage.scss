@@ -1,15 +1,43 @@
 @import '../../styles/variables';
 
 .HomePage {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
+  &-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 512px;
+  }
+
+  &-bottom {
+    margin-top: 64px;
+  }
+
+  &-divider {
+    border: 0;
+    height: 2px;
+    width: 80%;
+    min-width: 800px;
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, $md-orange-700 30%, $md-amber-300 70%, rgba(0, 0, 0, 0) 100%);
+  }
+
+  &-bottom, &-divider {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: all 0.5s ease;
+  }
+
+  &--loaded {
+    .HomePage-bottom, .HomePage-divider {
+      opacity: 1;
+      transform: none;
+    }
+  }
 
   &-logo {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 16px 0;
   }
 
@@ -17,13 +45,14 @@
     display: flex;
     justify-content: center;
     height: 40px;
+    margin: 16px 0;
 
     .Button {
       min-width: 128px;
     }
 
     &-login, &-register {
-      margin: 0 16px;
+      margin: 0 24px;
       opacity: 0;
       transition: opacity 0.5s ease;
     }
@@ -41,5 +70,11 @@
         cursor: default;
       }
     }
+  }
+
+  &-cards {
+    max-width: 70%;
+    min-width: 800px;
+    margin: auto;
   }
 }

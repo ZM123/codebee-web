@@ -1,0 +1,49 @@
+@import "../../styles/variables";
+
+.Icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  @include no-select;
+
+  $small: 24px;
+  $medium: 32px;
+  $large: 48px;
+  $huge: 72px;
+
+  &--Small {
+    width: $small;
+    height: $small;
+
+    .material-icons {
+      font-size: $small;
+    }
+  }
+
+  &--Medium {
+    width: $medium;
+    height: $medium;
+
+    .material-icons {
+      font-size: $medium;
+    }
+  }
+
+  &--Large {
+    width: $large;
+    height: $large;
+
+    .material-icons {
+      font-size: $large;
+    }
+  }
+
+  &--Huge {
+    width: $huge;
+    height: $huge;
+
+    .material-icons {
+      font-size: $huge;
+    }
+  }
+}
