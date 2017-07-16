@@ -1,16 +1,6 @@
 @import "../../styles/variables";
 
 .Button {
-  @function button-gradient($c1, $c2) {
-    @return radial-gradient(circle at center, $c1 0%, $c2 66%);
-  }
-
-  @mixin button-gradient($c1, $c2) {
-    background: button-gradient($c1, $c2);
-    background-size: 200%;
-    background-position: top right;
-  }
-
   border: 0;
   padding: 0;
   background: none;
@@ -68,7 +58,7 @@
 
   &--raised {
     background-color: darken($md-blue-grey-900, 10%);
-    box-shadow: 0 2px 5px 0 rgba($md-black, 0.26);
+    @include shadow-light;
   }
 
   &--raised.Button--disabled {
