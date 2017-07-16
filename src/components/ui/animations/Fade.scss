@@ -1,8 +1,52 @@
-.fade-enter, .fade-appear {
-  opacity : 0;
+$durations: (
+  short: 200ms,
+  long: 500ms
+);
+
+@each $length, $duration in $durations {
+  $name: fade-#{$length};
+
+  .#{$name}-enter, .#{$name}-appear, .#{$name}-exit.#{$name}-exit-active {
+    opacity: 0;
+    transition: opacity $duration ease-in;
+  }
+
+  .#{$name}-enter.#{$name}-enter-active, .#{$name}-appear.#{$name}-appear-active {
+    opacity: 1;
+  }
 }
 
-.fade-enter.fade-enter-active, .fade-appear.fade-appear-active {
-  opacity: 1;
-  transition: opacity 250ms ease-in;
-}
+// .fade-short-enter, .fade-short-appear, .fade-long-enter, .fade-long-appear {
+//   opacity: 0;
+// }
+
+// .fade-short-enter.fade-short-enter-active, .fade-short-appear.fade-short-appear-active {
+//   opacity: 1;
+//   transition: opacity 100ms ease-in;
+// }
+
+// .fade-long-enter.fade-long-enter-active, .fade-long-appear.fade-long-appear-active {
+//   opacity: 1;
+//   transition: opacity 250ms ease-in;
+// }
+
+// .fade-short-enter.fade-short-enter-active, .fade-short-appear.fade-short-appear-active {
+//   opacity: 1;
+//   transition: opacity 100ms ease-in;
+// }
+
+// .fade-long-enter.fade-long-enter-active, .fade-long-appear.fade-long-appear-active {
+//   opacity: 1;
+//   transition: opacity 250ms ease-in;
+// }
+
+
+// .fade-short-enter.fade-short-enter-active, .fade-short-appear.fade-short-appear-active {
+//   opacity: 1;
+//   transition: opacity 100ms ease-in;
+// }
+
+// .fade-long-enter.fade-long-enter-active, .fade-long-appear.fade-long-appear-active {
+//   opacity: 1;
+//   transition: opacity 250ms ease-in;
+// }

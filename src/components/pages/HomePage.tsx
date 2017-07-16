@@ -17,7 +17,7 @@ interface State {
 }
 
 export default class HomePage extends React.Component<{}, State> {
-  typingTimeout: number;
+  animTimeout: number;
 
   state: State = {
     showLogin: false,
@@ -26,17 +26,17 @@ export default class HomePage extends React.Component<{}, State> {
   };
 
   componentWillUnmount() {
-    window.clearTimeout(this.typingTimeout);
+    window.clearTimeout(this.animTimeout);
   }
 
   handleTypingComplete = () => {
-    this.typingTimeout = window.setTimeout(() => {
+    this.animTimeout = window.setTimeout(() => {
       this.setState({ showLogin: true });
 
-      this.typingTimeout = window.setTimeout(() => {
+      this.animTimeout = window.setTimeout(() => {
         this.setState({ showRegister: true });
 
-        this.typingTimeout = window.setTimeout(() => {
+        this.animTimeout = window.setTimeout(() => {
           this.setState({ loaded: true });
         }, 200);
       }, 200)
@@ -56,7 +56,7 @@ export default class HomePage extends React.Component<{}, State> {
     return (
       <div className={cssClass}>
         <div className="HomePage-top">
-          <Fade appear={true}>
+          <Fade appear={true} duration="Long">
             <div className="HomePage-logo">
               <Logo />
               <HomeDescription onComplete={this.handleTypingComplete} />

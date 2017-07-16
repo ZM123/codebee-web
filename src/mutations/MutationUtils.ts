@@ -1,5 +1,5 @@
-import * as uuid from 'uuid/v4';
+import { uniqueId } from 'lodash';
 
 export function getClientMutationId() {
-  return uuid();
+  return uniqueId();
 }
