@@ -47,28 +47,9 @@
     height: 40px;
     margin: 16px 0;
 
-    .Button {
-      min-width: 128px;
-    }
-
-    &-login, &-register {
+    .Button, &-placeholder {
       margin: 0 24px;
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
-
-    &--show-login &-login {
-      opacity: 1;
-    }
-
-    &--show-register &-register {
-      opacity: 1;
-    }
-
-    &:not(&--show-login), &:not(&--show-register) {
-      .Button {
-        cursor: default;
-      }
+      min-width: 128px;
     }
   }
 

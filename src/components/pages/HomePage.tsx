@@ -32,16 +32,15 @@ export default class HomePage extends React.Component<{}, State> {
   handleTypingComplete = () => {
     this.animTimeout = window.setTimeout(() => {
       this.setState({ showLogin: true });
-
-      this.animTimeout = window.setTimeout(() => {
-        this.setState({ showRegister: true });
-
-        this.animTimeout = window.setTimeout(() => {
-          this.setState({ loaded: true });
-        }, 200);
-      }, 200)
     }, 200);
   }
+
+  handleButtonEntered = (loaded: boolean = false) => {
+    this.setState({
+      showRegister: true,
+      loaded
+    });
+  };
 
   render() {
     const cssClass = classnames('HomePage', {
@@ -56,23 +55,35 @@ export default class HomePage extends React.Component<{}, State> {
     return (
       <div className={cssClass}>
         <div className="HomePage-top">
-          <Fade appear={true} duration="Long">
+          <Fade appear duration="Long">
             <div className="HomePage-logo">
               <Logo />
               <HomeDescription onComplete={this.handleTypingComplete} />
             </div>
           </Fade>
           <div className={buttonsCssClass}>
-            <span className="HomePage-buttons-login">
-              <Link to="/login">
-                <Button primary>Login</Button>
-              </Link>
-            </span>
-            <span className="HomePage-buttons-register">
-              <Link to="/register">
-                <Button outline>Register</Button>
-              </Link>
-            </span>
+            {
+              this.state.showLogin
+              ? (
+                <Fade appear onEntered={() => this.handleButtonEntered()}>
+                  <Link to="/login">
+                    <Button primary>Login</Button>
+                  </Link>
+                </Fade>
+              )
+              : <div className="HomePage-buttons-placeholder" />
+            }
+            {
+              this.state.showRegister
+              ? (
+                <Fade appear onEntered={() => this.handleButtonEntered(true)}>
+                  <Link to="/register">
+                    <Button outline>Register</Button>
+                  </Link>
+                </Fade>
+              )
+              : <div className="HomePage-buttons-placeholder" />
+            }
           </div>
         </div>
         <hr className="HomePage-divider" />
