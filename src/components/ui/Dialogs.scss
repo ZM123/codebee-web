@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+
+.Dialogs {
+  z-index: 5000;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+
+  &--hidden {
+    display: none;
+  }
+}
+
+.DialogContainer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.DialogOverlay {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 100%;
+
+  &--opaque {
+    background-color: rgba(darken($md-blue-grey-900, 10%), 0.8);
+  }
+}
+
+.Dialog {
+  position: relative;
+  background-color: $md-grey-900;
+  @include shadow-medium;
+
+  &--Small {
+    min-width: 256px;
+    max-width: 480px;
+  }
+
+  &--Medium {
+    min-width: 512px;
+    max-width: 768px;
+  }
+
+  &--Large {
+    min-width: 768px;
+    max-width: 100%;
+  }
+
+  &-header {
+    display: flex;
+    padding: 12px 4px 12px 16px;
+
+    &-title {
+      @include font-raleway-regular;
+      @include text-ellipsis;
+      font-size: $font-size-large;
+      line-height: 40px;
+      color: $md-amber-700;
+      flex-grow: 1;
+    }
+
+    .IconButton {
+      margin-left: 8px;
+    }
+  }
+
+  &-body {
+    padding: 0 16px 16px;
+  }
+}

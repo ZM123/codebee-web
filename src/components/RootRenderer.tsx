@@ -4,13 +4,13 @@ import { QueryRenderer, graphql } from 'react-relay';
 import Environment from '../Environment';
 import Root from './Root';
 
-export default class RootRenderer extends React.Component<any, any> {
+export default class RootRenderer extends React.Component {
   render() {
     return (
       <QueryRenderer
         environment={Environment}
         query={graphql`
-          query RootQuery {
+          query RootRendererQuery {
             hello
           }
         `}

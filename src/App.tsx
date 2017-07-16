@@ -2,12 +2,12 @@ import './App.scss';
 
 import * as React from 'react';
 import { render } from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import { Provider } from 'react-redux'
-import { Route } from 'react-router-dom'
+import { BrowserRouter, Route } from 'react-router-dom';
+import { combineReducers } from 'redux';
 
-import Store from './Store';
 import RootRenderer from './components/RootRenderer';
+import Store from './Store';
 
 render((
   <BrowserRouter>

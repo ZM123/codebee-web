@@ -35,13 +35,14 @@ export default class Fade extends React.Component<Props> {
     const timeout = DURATION_MAP[duration!];
     return (
       <TransitionGroup>
-        {React.Children.map(this.props.children, (child, i) => {
+        {React.Children.map(this.props.children, child => {
+          const key = (child as React.ReactElement<any>).key!;
           return (
             <CSSTransition
               appear={appear}
               enter={!appear}
               exit={!appear}
-              key={(child as React.ReactElement<any>).key!}
+              key={key}
               classNames={`fade-${duration!.toLowerCase()}`}
               timeout={timeout}
               {...handlers}

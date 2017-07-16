@@ -4,5 +4,5 @@
   position: relative;
   padding: 24px;
   background-color: $md-grey-900;
-  @include shadow;
+  @include shadow-light;
 }

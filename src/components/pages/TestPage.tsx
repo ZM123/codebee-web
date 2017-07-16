@@ -5,6 +5,7 @@ import * as React from 'react';
 import Logo from '../Logo/Logo';
 import Buttons from '../ui/examples/Buttons';
 import IconButtons from '../ui/examples/IconButtons';
+import Dialogs from '../ui/examples/Dialogs';
 import Panel from '../ui/Panel';
 
 const TestPage = () => (
@@ -12,6 +13,7 @@ const TestPage = () => (
     <Panel><Logo /></Panel>
     <Panel><Buttons /></Panel>
     <Panel><IconButtons /></Panel>
+    <Panel><Dialogs /></Panel>
   </div>
 );
 
