@@ -1,15 +1,7 @@
 @import '../styles/variables';
 
 .Login {
-  h1 {
-    @include font-raleway-regular;
-    font-size: $font-size-large;
-    color: $md-amber-700;
-  }
-
-  .Panel {
-    width: 320px;
-  }
+  width: 320px;
 
   &-form {
     margin: 16px 0;

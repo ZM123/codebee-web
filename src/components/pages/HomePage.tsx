@@ -2,28 +2,51 @@ import './HomePage.scss';
 
 import * as React from 'react';
 import * as classnames from 'classnames';
-import { Link } from 'react-router-dom';
+import { Link, Route, RouteComponentProps } from 'react-router-dom';
 
 import Button from '../ui/Button';
+import { DialogRoute } from '../ui/Dialogs';
 import Fade from '../ui/animations/Fade';
 import HomeCards from '../HomeCards';
 import HomeDescription from '../HomeDescription';
 import Logo from '../Logo/Logo';
+import Login from '../Login';
+import Registration from '../Registration';
+
+const LoginDialog = DialogRoute({
+  clickToClose: false,
+  escapeToClose: false,
+  size: 'Small',
+  title: 'Login'
+})(Login);
+
+const RegistrationDialog = DialogRoute({
+  clickToClose: false,
+  escapeToClose: false,
+  size: 'Small',
+  title: 'Create an account'
+})(Registration);
 
 interface State {
+  mounted: boolean;
   showLogin: boolean;
   showRegister: boolean;
   loaded: boolean;
 }
 
-export default class HomePage extends React.Component<{}, State> {
-  animTimeout: number;
-
+export default class HomePage extends React.Component<RouteComponentProps<any>, State> {
   state: State = {
+    mounted: false,
     showLogin: false,
     showRegister: false,
     loaded: false
   };
+
+  animTimeout: number;
+
+  componentDidMount() {
+    this.setState({ mounted: true }); // Need to render logo animation after mounting, no idea why :(
+  }
 
   componentWillUnmount() {
     window.clearTimeout(this.animTimeout);
@@ -43,6 +66,8 @@ export default class HomePage extends React.Component<{}, State> {
   };
 
   render() {
+    const { match } = this.props;
+
     const cssClass = classnames('HomePage', {
       'HomePage--loaded': this.state.loaded
     });
@@ -55,18 +80,24 @@ export default class HomePage extends React.Component<{}, State> {
     return (
       <div className={cssClass}>
         <div className="HomePage-top">
-          <Fade appear duration="Long">
-            <div className="HomePage-logo">
-              <Logo />
-              <HomeDescription onComplete={this.handleTypingComplete} />
-            </div>
-          </Fade>
+          {
+            this.state.mounted
+            ? (
+              <Fade appear duration="Long">
+                <div className="HomePage-logo">
+                  <Logo />
+                  <HomeDescription onComplete={this.handleTypingComplete} />
+                </div>
+              </Fade>
+            ) :
+            null
+          }
           <div className={buttonsCssClass}>
             {
               this.state.showLogin
               ? (
                 <Fade appear onEntered={() => this.handleButtonEntered()}>
-                  <Link to="/login">
+                  <Link to={`${match.url}/login`}>
                     <Button primary>Login</Button>
                   </Link>
                 </Fade>
@@ -77,7 +108,7 @@ export default class HomePage extends React.Component<{}, State> {
               this.state.showRegister
               ? (
                 <Fade appear onEntered={() => this.handleButtonEntered(true)}>
-                  <Link to="/register">
+                  <Link to={`${match.url}/register`}>
                     <Button outline>Register</Button>
                   </Link>
                 </Fade>
@@ -92,6 +123,8 @@ export default class HomePage extends React.Component<{}, State> {
             <HomeCards />
           </div>
         </div>
+        <LoginDialog path={`${match.url}/login`} />
+        <RegistrationDialog path={`${match.url}/register`} />
       </div>
     );
   }

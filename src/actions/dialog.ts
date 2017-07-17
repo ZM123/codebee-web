@@ -37,7 +37,7 @@ export function openDialog(node: any, options = DEFAULT_OPTIONS): DialogAction {
     options = Object.assign({}, DEFAULT_OPTIONS, options);
   }
   options.node = node;
-  options.key = uniqueId('dialog_');
+  options.key = options.key || uniqueId('dialog_');
   return {
     type: OPEN_DIALOG,
     options

@@ -23,11 +23,11 @@ export default class Header extends React.Component {
     return (
       <div className="Header">
         <div className="Header-links">
-          <HeaderLink to="/">Home</HeaderLink>
+          <HeaderLink to="/home">Home</HeaderLink>
           <HeaderLink to="/about">About</HeaderLink>
           <HeaderLink to="/rules">Rules</HeaderLink>
           <HeaderLink to="/try">Try it out!</HeaderLink>
-          <HeaderLink to="/login">Login</HeaderLink>
+          <HeaderLink to="/home/login">Login</HeaderLink>
         </div>
       </div>
     );
