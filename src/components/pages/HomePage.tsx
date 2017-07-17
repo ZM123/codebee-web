@@ -2,7 +2,11 @@ import './HomePage.scss';
 
 import * as React from 'react';
 import * as classnames from 'classnames';
+import { Dispatch } from 'redux';
+import { connect } from 'react-redux';
 import { Link, Route, RouteComponentProps } from 'react-router-dom';
+
+import { setHomeViewed } from '../../actions/global';
 
 import Button from '../ui/Button';
 import { DialogRoute } from '../ui/Dialogs';
@@ -12,6 +16,18 @@ import HomeDescription from '../HomeDescription';
 import Logo from '../Logo/Logo';
 import Login from '../Login';
 import Registration from '../Registration';
+
+interface Props {
+  animations: boolean;
+  onHomeViewed: () => void;
+}
+
+interface State {
+  mounted: boolean;
+  showLogin: boolean;
+  showRegister: boolean;
+  loaded: boolean;
+}
 
 const LoginDialog = DialogRoute({
   clickToClose: false,
@@ -27,14 +43,7 @@ const RegistrationDialog = DialogRoute({
   title: 'Create an account'
 })(Registration);
 
-interface State {
-  mounted: boolean;
-  showLogin: boolean;
-  showRegister: boolean;
-  loaded: boolean;
-}
-
-export default class HomePage extends React.Component<RouteComponentProps<any>, State> {
+export class HomePage extends React.Component<Props & RouteComponentProps<any>, State> {
   state: State = {
     mounted: false,
     showLogin: false,
@@ -45,7 +54,17 @@ export default class HomePage extends React.Component<RouteComponentProps<any>, 
   animTimeout: number;
 
   componentDidMount() {
-    this.setState({ mounted: true }); // Need to render logo animation after mounting, no idea why :(
+    if (this.props.animations) {
+      this.setState({ mounted: true }); // Need to render logo animation after mounting, no idea why :(
+      this.props.onHomeViewed();
+    } else {
+      this.setState({
+        mounted: true,
+        showLogin: true,
+        showRegister: true,
+        loaded: true
+      });
+    }
   }
 
   componentWillUnmount() {
@@ -129,3 +148,24 @@ export default class HomePage extends React.Component<RouteComponentProps<any>, 
     );
   }
 }
+
+const mapStateToProps = (state: any) => {
+  return {
+    animations: !state.global.homeViewed
+  };
+}
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) => {
+  return {
+    onHomeViewed: () => {
+      dispatch(setHomeViewed());
+    }
+  };
+}
+
+const HomePageContainer = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(HomePage);
+
+export default HomePageContainer;
