@@ -149,9 +149,9 @@ export function DialogRoute<P>(options: DialogOptions = {}) {
         const dialogOptions = Object.assign({
           key: this.key,
           onClose: () => {
-            const { location, history } = this.props;
+            const { location, history, match } = this.props;
             if (location.key == history.location.key) {
-              history.goBack();
+              history.replace(match.path.split('/').slice(0, -1).join('/'));
             }
           }
         } as DialogOptions, options);

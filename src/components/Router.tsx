@@ -9,7 +9,7 @@ export default class Router extends React.Component {
     return (
       <Switch>
         <Redirect exact from="/" to="/home" />
-        <Route path="/home" component={HomePage} />
+        <Route path="/home" component={HomePage as any} />
         <Route path="/about" component={TestPage} />
         <Route path="/test" component={TestPage} />
       </Switch>
