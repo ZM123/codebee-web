@@ -18,6 +18,11 @@ async function fetchQuery(operation: any, variables: any, cacheConfig: any, uplo
     headers.append(Constants.CSRF_HEADER, csrfToken);
   }
 
+  const token = LocalStorage.getItem(Constants.TOKEN_HEADER);
+  if (token) {
+    headers.append(Constants.TOKEN_HEADER, token);
+  }
+
   const res = await fetch('/graphql', {
     method: 'POST',
     headers: headers,
@@ -28,7 +33,11 @@ async function fetchQuery(operation: any, variables: any, cacheConfig: any, uplo
   })
 
   if (res.headers.has(Constants.CSRF_HEADER)) {
-    LocalStorage.setItem(Constants.CSRF_HEADER, String(res.headers.get(Constants.CSRF_HEADER)));
+    LocalStorage.setItem(Constants.CSRF_HEADER, (res.headers.get(Constants.CSRF_HEADER)!));
+  }
+
+  if (res.headers.has(Constants.TOKEN_HEADER)) {
+    LocalStorage.setItem(Constants.TOKEN_HEADER, (res.headers.get(Constants.TOKEN_HEADER)!));
   }
 
   return res.json();

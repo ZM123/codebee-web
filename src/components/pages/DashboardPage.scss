@@ -1,0 +1,8 @@
+@import '../../styles/variables';
+
+.DashboardPage {
+  h1 {
+    @include font-raleway-regular;
+    font-size: $font-size-large;
+  }
+}

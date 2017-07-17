@@ -51,6 +51,7 @@ input UpdateUserInput {
 type User implements Node {
   id: ID!
   name: String!
+  isAuthenticated: Boolean!
 }
 
 type UserConnection implements Connection {
